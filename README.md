@@ -50,6 +50,13 @@ Please see [example](https://github.com/TomokiMiyauci/vite-plugin-amp/tree/main/
 - [ ] Preact
 - [ ] lit-element
 
+## Limitation
+
+AMP Project has limitation of Native JavaScript.
+Native Javascript doesn't work unless it's in the [`amp-script`](https://amp.dev/ja/documentation/components/amp-script/?format=websites) tag.
+
+If you want to manage state, you can use [`amp-bind`](https://amp.dev/ja/documentation/components/amp-bind/) tag.
+
 ## Todo
 
 - [ ] Frameworks other than Vue3
