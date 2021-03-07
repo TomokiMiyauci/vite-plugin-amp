@@ -1,3 +1,12 @@
+# [v1.2.2](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.1...v1.2.2) (2021-03-07)
+
+## 🐛 Bug Fixes
+- [`83683d4`](https://github.com/TomokiMiyauci/vite-plugin-amp/commit/83683d4)   Remove optimize on transform 
+
+
+
+## [1.2.2](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.1...v1.2.2) (2021-03-07)
+
 # [v1.2.1](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.0...v1.2.1) (2021-03-07)
 
 ## 🐛 Bug Fixes
