@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-amp",
   "description": "Zero-config AMP for Vite",
-  "version": "0.0.1-1",
+  "version": "0.0.1-2",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -38,5 +38,13 @@
     "commitizen": {
       "path": "cz-emoji"
     }
-  }
+  },
+  "keywords": [
+    "vite-plugin",
+    "vite-plugin-amp",
+    "amp"
+  ],
+  "files": [
+    "dist"
+  ]
 }
