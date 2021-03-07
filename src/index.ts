@@ -62,7 +62,7 @@ const plugin = (option?: Partial<Options>): Plugin => {
 
     transformIndexHtml: {
       enforce: 'post',
-      transform: transform(ampOptimizer)
+      transform
     }
   }
 }
