@@ -1,3 +1,4 @@
 {
-  "branches": ["main", "next"]
+  "branches": ["main", "next"],
+  "plugins": ["semantic-release-gitmoji"]
 }
