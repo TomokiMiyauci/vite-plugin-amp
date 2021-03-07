@@ -1,16 +1,18 @@
 {
   "name": "vite-plugin-amp",
   "description": "Zero-config AMP for Vite",
-  "version": "0.0.0",
+  "version": "0.0.1-0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "author": "TomokiMiyauci <development.operation.6.6.6@gmail.com>",
+  "repository": "https://github.com/TomokiMiyauci/vite-plugin-amp",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.ts",
-    "lint:script": "eslint --ext .ts --ignore-path .gitignore ."
+    "lint:script": "eslint --ext .ts --ignore-path .gitignore .",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@ampproject/toolbox-optimizer": "^2.7.6",
