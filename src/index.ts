@@ -42,7 +42,7 @@ const plugin = (option?: Options): Plugin => ({
 
   transformIndexHtml: {
     enforce: 'post',
-    transform
+    transform: transform(ampOptimizer)
   }
 })
 
