@@ -4,47 +4,67 @@ import { Plugin } from 'vite'
 import { styles } from './constants'
 import { onPageRendered, transform } from './options'
 
-const ampOptimizer = AmpOptimizer.create({
-  minify: false,
-  markdown: true
-})
-interface Options {
-  removeCssImportant?: boolean
+interface AMPOptimizerOptions {
+  autoAddMandatoryTags: boolean
+  autoExtensionImport: boolean
+  extensionVersions: Record<string, string>
+  format: 'AMP' | 'AMP4EMAIL' | 'AMP4ADS'
+  experimentEsm: boolean
+  imageBasePath: string
+  imageOptimizer: (src: string, width: string) => string
+  lts: boolean
+  minify: boolean
+  markdown: boolean
+  optimizeHeroImages: boolean
+  preloadHeroImage: boolean
+  verbose: boolean
 }
 
-const DefaultOptions: Options = {
+interface Options {
+  optimizerOptions: Partial<AMPOptimizerOptions>
+  removeCssImportant: boolean
+}
+
+const DefaultOptions: Partial<Options> = {
+  optimizerOptions: {
+    minify: true,
+    markdown: true
+  },
   removeCssImportant: true
 }
 
-const plugin = (option?: Options): Plugin => ({
-  name: 'vite:amp',
-
-  config: ({ build }) => ({
-    build: {
-      cssCodeSplit: false
-    },
-    ssgOptions: {
-      onPageRendered: onPageRendered(build?.assetsDir, ampOptimizer)
-    }
-  }),
-
-  transform: (code, id, ssr) => {
-    const { removeCssImportant } = {
-      ...DefaultOptions,
-      ...option
-    }
-    if (removeCssImportant && !ssr) {
-      if (styles.some((ext) => id.endsWith(`.${ext}`))) {
-        code = code.replaceAll(' !important', '')
-      }
-    }
-    return code
-  },
-
-  transformIndexHtml: {
-    enforce: 'post',
-    transform: transform(ampOptimizer)
+const plugin = (option?: Partial<Options>): Plugin => {
+  const { removeCssImportant, optimizerOptions } = {
+    ...DefaultOptions,
+    ...option
   }
-})
+  const ampOptimizer = AmpOptimizer.create(optimizerOptions)
+  return {
+    name: 'vite:amp',
+
+    config: ({ build }) => ({
+      build: {
+        cssCodeSplit: false
+      },
+      ssgOptions: {
+        onPageRendered: onPageRendered(build?.assetsDir, ampOptimizer)
+      }
+    }),
+
+    transform: (code, id, ssr) => {
+      if (removeCssImportant && !ssr) {
+        if (styles.some((ext) => id.endsWith(`.${ext}`))) {
+          code = code.replaceAll(' !important', '')
+        }
+      }
+      return code
+    },
+
+    transformIndexHtml: {
+      enforce: 'post',
+      transform: transform(ampOptimizer)
+    }
+  }
+}
 
 export default plugin
