@@ -54,7 +54,7 @@ const plugin = (option?: Partial<Options>): Plugin => {
     transform: (code, id, ssr) => {
       if (removeCssImportant && !ssr) {
         if (styles.some((ext) => id.endsWith(`.${ext}`))) {
-          code = code.replaceAll(' !important', '')
+          code = code.replace(/!important/g, '')
         }
       }
       return code
