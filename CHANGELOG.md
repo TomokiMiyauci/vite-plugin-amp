@@ -1,3 +1,12 @@
+# [v1.2.3](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.2...v1.2.3) (2021-03-07)
+
+## 🐛 Bug Fixes
+- [`9d51bd6`](https://github.com/TomokiMiyauci/vite-plugin-amp/commit/9d51bd6)   Fix syntax 
+
+
+
+## [1.2.3](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.2...v1.2.3) (2021-03-07)
+
 # [v1.2.2](https://github.com/TomokiMiyauci/vite-plugin-amp/compare/v1.2.1...v1.2.2) (2021-03-07)
 
 ## 🐛 Bug Fixes
