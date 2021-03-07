@@ -1,6 +1,7 @@
 import AmpOptimizer from '@ampproject/toolbox-optimizer'
 import { Plugin } from 'vite'
 
+import { styles } from './constants'
 import { onPageRendered, transform } from './options'
 
 const ampOptimizer = AmpOptimizer.create({
@@ -33,7 +34,7 @@ const plugin = (option?: Options): Plugin => ({
       ...option
     }
     if (removeCssImportant && !ssr) {
-      if (['.scss', '.css'].some((ext) => id.endsWith(ext))) {
+      if (styles.some((ext) => id.endsWith(`.${ext}`))) {
         code = code.replaceAll(' !important', '')
       }
     }
