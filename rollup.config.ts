@@ -18,7 +18,7 @@ const config = {
       sourcemap: true
     }
   ],
-  external: ['@ampproject/toolbox-optimizer'],
+  external: ['@ampproject/toolbox-optimizer', 'jimp'],
   watch: {
     include: 'src/**'
   },
