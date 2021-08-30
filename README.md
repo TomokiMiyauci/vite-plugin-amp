@@ -26,7 +26,7 @@
 ## Usage
 
 ```bash
-npm i vite-plugin-amp -D # yarn add vite-plugin-amp -D
+npm i vite-plugin-amp @ampproject/toolbox-optimizer -D # yarn add vite-plugin-amp -D
 ```
 
 Add it to `vite.config.ts`
